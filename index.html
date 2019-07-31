@@ -10,10 +10,9 @@
     <br>
     <br>
     <br>
-    Michael House <img src="https://i2.wp.com/bestlifeonline.com/wp-content/uploads/2019/01/school-kids-laughing.jpg?fit=500%2C333&ssl=1" height="142" width="142"><span id="beaumont" style="font-size: 55px"></span><span id="michael" style="font-size: 55px"> </span>
+    Michael House <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQyQZXddvL9asF-lgSeX8fBKYEceZmzhV7UqiJqLxq6dBoaxX5EzeLh_iw2f21KcSI9tMcCi9p7RRdfb4sZof3VIMZXpUaQ&usqp=CAc" height="142" width="142"><span id="beaumont" style="font-size: 55px"></span><span id="michael" style="font-size: 55px"> </span>
 
 
-    <span id="result" style="font-size: 55px"></span>
     <br>
     <form id="sorting">
       <h1> Sorting Questions </h1>
@@ -58,6 +57,94 @@
         <button id="reset">Reset</button>
       </p>
     </form>
+
+    <div id="football" style="font-size: 45px;">
+
+    </div>
+    <div id="cheerleader" style="font-size: 45px;">
+
+    </div>
+
+    <div id="brush" style="font-size: 45px;">
+
+    </div>
+
+    <div id="retirement" style="font-size: 45px;">
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+
+      var arrayVariable = "football practice today".split("");
+      $.each(arrayVariable, function(index, value) {
+        let e = $('<span />', {
+          'text': value
+        })
+
+        e.appendTo('#football');
+        e.attr('id', `football${index}`);
+
+        $( function() {
+          $( `#football${index}` ).draggable({ containment: "#football" });;
+        } );
+
+      });
+
+
+
+
+
+      var cheerleaderVariable = "cheerleader tryouts on wednesday".split("");
+      $.each(cheerleaderVariable, function(index, value) {
+        let e = $('<span />', {
+          'text': value
+        })
+        e.appendTo('#cheerleader');
+        e.attr('id', `cheerleader${index}`);
+
+        $( function() {
+          $( `#cheerleader${index}` ).draggable({ containment: "#cheerleader" });;
+        } );
+
+      });
+
+      var brushVariable = "Make sure to brush your teeth!".split("");
+      $.each(brushVariable, function(index, value) {
+        let e = $('<span />', {
+          'text': value
+        })
+        e.appendTo('#brush');
+        e.attr('id', `brush${index}`);
+
+        $( function() {
+          $( `#brush${index}` ).draggable({ containment: "#brush" });;
+        } );
+
+      });
+
+      var retirementVariable = "Happy retirement party tomorrow".split("");
+      $.each(retirementVariable, function(index, value) {
+        let e = $('<span />', {
+          'text': value
+        })
+        e.appendTo('#retirement');
+        e.attr('id', `retirement${index}`);
+
+        $( function() {
+          $( `#retirement${index}` ).draggable({ containment: "#retirement" });;
+        } );
+
+      });
+
+    </script>
+
     <script type="text/javascript">
 
       const button = document.getElementById("submit");
@@ -77,9 +164,20 @@
         var valueD = d.options[d.selectedIndex].value;
         values[valueD]++
         console.log(values);
+        hairType = {
+          "beaumont": " and you have brown straight chest hair",
+          "jacobson": "",
+          "michael": "and you have orange curly chest hair"
+
+        }
+        hairType = {
+        "beaumont": "",
+        "jacobson": "",
+        "michael": ""
+        }
         for (value in values){
           if (values[value] >= 2){
-            document.getElementById(value).innerHTML = `&nbsp;&nbsp;&nbsp;You Belong to the ${value.charAt(0).toUpperCase()+ value.slice(1)} house`
+            document.getElementById(value).innerHTML = `&nbsp;&nbsp;&nbsp;You Belong to the ${value.charAt(0).toUpperCase()+ value.slice(1)} house ${hairType[value]}`
             return
           }
           console.log(`${value}:`, values[value])
