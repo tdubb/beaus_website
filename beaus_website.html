@@ -1,0 +1,94 @@
+<html>
+  <body>
+
+    <br>
+    Jacobson House <img src="https://thumbs.dreamstime.com/b/musical-instruments-sketch-style-vector-illustration-40731127.jpg" height="142" width="142"><span id="jacobson" style="font-size: 55px"></span>
+    <br>
+    <br>
+    <br>
+    Beaumont House <img src="https://cdn.vox-cdn.com/thumbor/L1uulnazqH_8iRtE3rDMdumNG2w=/0x0:2258x1503/1200x800/filters:focal(857x379:1217x739)/cdn.vox-cdn.com/uploads/chorus_image/image/63075854/usa_today_12181950.0.jpg" height="142" width="142"><span id="beaumont" style="font-size: 55px"></span>
+    <br>
+    <br>
+    <br>
+    Michael House <span style="font-size: 36px; font-weight: bold; font-style: italic; -webkit-transform:rotate(10deg); display: inline-block;">Big Head</span><span id="michael" style="font-size: 55px"> </span>
+
+
+    <span id="result" style="font-size: 55px"></span>
+    <br>
+    <form id="sorting">
+      <h1> Sorting Questions </h1>
+      <p>
+        <label>What do you prefer to do in your free time?</label><br>
+        <select id="1">
+          <option value="beaumont">Play Basketball</option>
+          <option value="jacobson">Practice Piano</option>
+          <option value="michael">Share Jokes</option>
+        </select>
+      </p>
+
+      <p>
+        <label>Are you?</label><br>
+        <select id="2">
+          <option value="michael">Funny</option>
+          <option value="beaumont">Smart</option>
+          <option value="jacobson">Creative</option>
+        </select>
+      </p>
+
+      <p>
+        <label>Do you prefer?</label><br>
+        <select id="3">
+          <option value="jacobson">School</option>
+          <option value="beaumont">Summer</option>
+          <option value="michael">Are you proud you can use a big boy toilet</option>
+        </select>
+      </p>
+
+      <p>
+        <label>Do you like?</label><br>
+        <select id="4">
+          <option value="beaumont">A Cheetah</option>
+          <option value="jacobson">A Tucan</option>
+          <option value="michael">A Monkey</option>
+        </select>
+      </p>
+
+      <p>
+        <button id="submit">Submit</button>
+        <button id="reset">Reset</button>
+      </p>
+    </form>
+    <script type="text/javascript">
+
+      const button = document.getElementById("submit");
+      button.addEventListener("click",function(e){
+        e.preventDefault()
+        let values = {"beaumont": 0, "jacobson": 0 , "michael": 0}
+        var a = document.getElementById("1")
+        var valueA = a.options[a.selectedIndex].value;
+        values[valueA]++
+        var b = document.getElementById("2")
+        var valueB = b.options[b.selectedIndex].value;
+        values[valueB]++
+        var c = document.getElementById("3")
+        var valueC = c.options[c.selectedIndex].value;
+        values[valueC]++
+        var d = document.getElementById("4")
+        var valueD = d.options[d.selectedIndex].value;
+        values[valueD]++
+        console.log(values);
+        for (value in values){
+          if (values[value] >= 2){
+            document.getElementById(value).innerHTML = `&nbsp;&nbsp;&nbsp;You Belong to the ${value.charAt(0).toUpperCase()+ value.slice(1)} house`
+          }
+          console.log(`${value}:`, values[value])
+          }
+      },false);
+
+      const reset = document.getElementById("reset");
+      reset.addEventListener("click",function(e){
+        location.reload();
+      },false);
+    </script>
+  </body>
+</html>
